@@ -73,29 +73,40 @@ class UnitreeG1Base(ru.ImportedRobotModel):
                                ru.make_coordinates( {'pos': [0.0, 0.0, 0.713926 ]} )
                                )
 
-class UnitreeG1Simple29dof(UnitreeG1Base):
+class UnitreeG129dofSimple(UnitreeG1Base):
     pass
 
 class UnitreeG129dof(UnitreeG1Base):
     pass
 
-class UnitreeG1Simple23dof(UnitreeG1Base):
+## TODO
+class UnitreeG129dofDex3Simple(UnitreeG1Base):
     pass
 
-class UnitreeG123dof(UnitreeG1Base):
+class UnitreeG129dofDex3(UnitreeG1Base):
     pass
+
+#class UnitreeG1Simple23dof(UnitreeG1Base):
+#    pass
+
+#class UnitreeG123dof(UnitreeG1Base):
+#    pass
+
 
 ### settings of model_file
-UnitreeG1Simple29dof.model_file = f'{os.path.dirname(__file__)}/simple_unitree_g1_29dof_mode_15.body'
+UnitreeG129dofSimple.model_file = f'{os.path.dirname(__file__)}/simple_unitree_g1_29dof_mode_15.body'
 UnitreeG129dof.model_file = f'{os.path.dirname(__file__)}/unitree_ros/robots/g1_description/g1_29dof_mode_15.urdf'
+UnitreeG129dofDex3Simple.model_file = f'{os.path.dirname(__file__)}/simple_unitree_g1_29dof_mode_15.body'
+UnitreeG129dofDex3.model_file = f'{os.path.dirname(__file__)}/unitree_ros/robots/g1_description/g1_29dof_mode_15.urdf'
 #class UnitreeG1Simple23dof.model_file = f'{os.path.dirname(__file__)}/simple_unitree_g1_29dof_mode_15.body'
 #class UnitreeG123dof.model_file = f'{os.path.dirname(__file__)}/simple_unitree_g1_29dof_mode_15.body'
 
 ### robot_class:
-robot_class = UnitreeG1Simple29dof
+#robot_class = UnitreeG129dofSimple
+robot_class = UnitreeG129dof
 
 _robot_type_map = {
-    "G1Simple29dof" : UnitreeG1Simple29dof,
+    "G129dofSimple" : UnitreeG129dofSimple,
     "G129dof"       : UnitreeG129dof,
 }
 ### makeRobot(robot=None, **kwargs):
