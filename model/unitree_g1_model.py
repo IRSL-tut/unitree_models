@@ -8,6 +8,8 @@ class UnitreeG1Base(ru.ImportedRobotModel):
     def _init_ending(self, **kwargs): ## override
         self._off_z = -0.035
         self._off_x = 0.035
+        self._hand_off_x = 0.1
+        self._hand_off_y = 0.035
         self.registerEndEffector('lleg', ## end-effector
                                  'left_ankle_roll_link', ## tip-link
                                  tip_link_to_eef = coordinates(fv(self._off_x, 0, self._off_z)),
@@ -30,7 +32,38 @@ class UnitreeG1Base(ru.ImportedRobotModel):
                                                  ('right_ankle_roll_joint', 'ankle-r'),
                                                  )
                                  )
-
+        self.registerEndEffector('larm', ## end-effector
+                                 'left_wrist_yaw_link', ## tip-link
+                                 tip_link_to_eef = coordinates(fv(self._hand_off_x, - self._hand_off_y, 0)),
+                                 joint_tuples = (('left_shoulder_pitch_joint', 'shoulder-p'),
+                                                 ('left_shoulder_roll_joint',  'shoulder-r'),
+                                                 ('left_shoulder_yaw_joint',   'shoulder-y'),
+                                                 ('left_elbow_joint',          'elbow-p'),
+                                                 ('left_wrist_roll_joint',     'wrist-r'),## yaw
+                                                 ('left_wrist_pitch_joint',    'wrist-p'),
+                                                 ('left_wrist_yaw_joint',      'wrist-y'),## roll
+                                                 )
+                                 )
+        self.registerEndEffector('rarm', ## end-effector
+                                 'right_wrist_yaw_link', ## tip-link
+                                 tip_link_to_eef = coordinates(fv(self._hand_off_x, self._hand_off_y, 0)),
+                                 joint_tuples = (('right_shoulder_pitch_joint', 'shoulder-p'),
+                                                 ('right_shoulder_roll_joint',  'shoulder-r'),
+                                                 ('right_shoulder_yaw_joint',   'shoulder-y'),
+                                                 ('right_elbow_joint',          'elbow-p'),
+                                                 ('right_wrist_roll_joint',     'wrist-r'),## yaw
+                                                 ('right_wrist_pitch_joint',    'wrist-p'),
+                                                 ('right_wrist_yaw_joint',      'wrist-y'),## roll
+                                                 )
+                                 )
+        self.registerEndEffector('torso', ## end-effector (this is just used as joint group)
+                                 'torso_link', ## tip-link
+                                 #tip_link_to_eef = coordinates(fv(self._off_x, 0, self._off_z)),
+                                 joint_tuples = (('waist_yaw_joint',   'waist-y'),
+                                                 ('waist_roll_joint',  'waist-r'),
+                                                 ('waist_pitch_joint', 'waist-p'),
+                                                 )
+                                 )
         self.registerNamedPose('default', ## CoM = 0, 0, xxx
                                [-0.5046941624051353, 0, 0, 0.9994336176391199, -0.4947393502417313, 0,
                                 -0.5046941624051353, 0, 0, 0.9994336176391199, -0.4947393502417313, 0,
