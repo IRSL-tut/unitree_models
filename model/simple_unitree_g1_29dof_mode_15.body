@@ -93,7 +93,7 @@ links:
                   height: 0.121249
       -
         type: IMU
-        name: "imu_in_prlvis"
+        name: "imu_in_pelvis"
         id: 0
         translation: [ 0.04525, 0, -0.08339 ]
   -

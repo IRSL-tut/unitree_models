@@ -689,7 +689,7 @@ devlist = [
     {'translation': [0.04525, 0.0, -0.08339],
      'rotation': [1.0, 0.0, 0.0, 0.0],
      'type': 'Imu',
-     'name': 'imu_in_prlvis',
+     'name': 'imu_in_pelvis',
      'id': 0,
      'link': 'pelvis'},
     ##
